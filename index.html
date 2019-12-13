@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+  background: black;
+}
+
+.caption, #instro {
+  font-family: "Courier";
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.slide {
+    transition: all 1s linear;
+}
+
+image, use {
+  transition: transform .5s ease-in;
+}
+
+#intro {
+  transform-origin: center center;
+}
+
+#audio {
+  position: absolute;
+  opacity: 0;
+}
+
+#root {
+  overflow: hidden;
+}
+  </style>  
+</head>
+
+<body>
+  <audio id="audio" controls src="/audio/xmas.mp3" preload="auto">
+  </audio>
+  <br />
+  <svg width="100vw" height="100vh" viewBox="0 0 1920 1080" id="root">
+    <defs>
+      <pattern id="redPattern" x="0" y="0" width="21" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect x="0" y="0" width="21" height="50" fill="red" />
+        <rect x="11" y="0" width="3" height="50" fill="white" opacity="0.4" />
+      </pattern>
+      <pattern id="greenPattern" x="0" y="0" width="21" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect x="0" y="0" width="21" height="50" fill="green" />
+        <rect x="11" y="0" width="3" height="50" fill="white" opacity="0.4" />
+      </pattern>
+      <clipPath id="textClip1">
+        <text id="caption1" class="caption" x="50%" y="760" dominant-baseline="middle" text-anchor="middle">
+        </text>
+      </clipPath>
+      <clipPath id="textClip2">
+        <text id="caption2" class="caption" x="50%" y="840" dominant-baseline="middle" text-anchor="middle">
+        </text>
+      </clipPath>
+      <clipPath id="textClip3">
+        <text id="caption3" class="caption" x="50%" y="920" dominant-baseline="middle" text-anchor="middle">
+        </text>
+      </clipPath>
+      <clipPath id="textClip4">
+        <text id="caption4" class="caption" x="50%" y="1000" dominant-baseline="middle" text-anchor="middle">
+        </text>
+      </clipPath>
+      <svg id="runsvg" width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <rect fill="#000000" x="0" y="0" width="600" height="600">
+        </rect>
+        <path d="M110.728395,277 L110.728395,212.753846 L127.024691,212.753846 L151.592593,277 L209,277 L178.506173,203.769231 C190.522634,198.107692 198.506173,191.564103 202.45679,184.138462 C206.407407,176.712821 208.382716,168.158974 208.382716,158.476923 C208.382716,143.625641 203.012346,131.666667 192.271605,122.6 C181.530864,113.533333 166.44856,109 147.024691,109 L147.024691,109 L59,109 L59,277 L110.728395,277 Z M133.248588,177 L111,177 L111,145 L134.988701,145 C148.329567,145 155,150.353768 155,161.061303 C155,166.292465 153.011299,170.256705 149.033898,172.954023 C145.056497,175.651341 139.794727,177 133.248588,177 L133.248588,177 Z M302.292596,280 C322.399643,280 338.710972,275.373377 351.226583,266.12013 C363.742194,256.866883 370,241.670996 370,220.532468 L370,220.532468 L370,109 L329.498662,109 L329.498662,207.577922 C329.498662,217.365801 329.108831,223.945887 328.32917,227.318182 C327.549509,230.690476 325.169492,233.713203 321.189117,236.386364 C317.208742,239.059524 312.099911,240.396104 305.862623,240.396104 C298.394291,240.396104 292.957181,238.545455 289.551293,234.844156 C286.145406,231.142857 284.442462,225.261905 284.442462,217.201299 L284.442462,217.201299 L284.442462,109 L232,109 L232,223.246753 C232,243.316017 238.421945,257.792208 251.265834,266.675325 C264.109723,275.558442 281.118644,280 302.292596,280 Z M438.953728,277 L438.953728,195.646154 C438.953728,188.097436 437.596401,178.907692 434.881748,168.076923 C440.886889,181.697436 446.8509,193.266667 452.773779,202.784615 L452.773779,202.784615 L498.922879,277 L541,277 L541,109 L498.922879,109 L498.922879,158.723077 C498.922879,173.738462 500.239075,188.425641 502.871465,202.784615 C498.840617,193.512821 492.917738,182.764103 485.102828,170.538462 L485.102828,170.538462 L445.863753,109 L397,109 L397,277 L438.953728,277 Z" id="RUN" fill="#FFFFFF" fill-rule="nonzero">
+        </path>
+        <g transform="translate(57.000000, 297.000000)" fill="#FFFFFF" fill-rule="nonzero">
+          <path d="M78.9485714,179 C102.274286,179 121.114286,173.550699 135.468571,162.652097 C149.822857,151.753494 157,137.525942 157,119.969439 C157,108.858801 154.052245,99.2112059 148.156735,91.0266525 C142.261224,82.842099 134.913197,77.0535418 126.112653,73.6609808 C117.312109,70.2684198 102.44517,66.3669747 81.5118367,61.9566453 C73.907483,60.3451789 68.7809524,58.6488984 66.1322449,56.8678038 C63.4835374,55.0867093 62.1591837,52.5846956 62.1591837,49.3617626 C62.1591837,42.1525705 68.0119728,38.5479744 79.717551,38.5479744 C93.8155102,38.5479744 103.171429,44.3577351 107.785306,55.9772566 L107.785306,55.9772566 L152.257959,42.6190476 C140.808707,14.2063492 117.269388,0 81.64,0 C58.1434014,0 40.1364626,5.42809761 27.6191837,16.2842928 C15.1019048,27.140488 8.84326531,40.7531391 8.84326531,57.1222459 C8.84326531,69.8443497 13.2008163,80.91258 21.9159184,90.3269367 C30.6310204,99.7412935 50.3254422,107.374556 80.9991837,113.226724 C89.0307483,114.83819 94.6058503,116.682895 97.7244898,118.760839 C100.843129,120.838782 102.402449,123.743663 102.402449,127.47548 C102.402449,134.599858 95.652517,138.162047 82.1526531,138.162047 C64.8078912,138.162047 54.0421769,131.16489 49.8555102,117.170576 L49.8555102,117.170576 L0,126.076048 C9.99673469,161.358683 36.3129252,179 78.9485714,179 Z" id="Path">
+          </path>
+          <path d="M270.893271,175 L325,2 L280.974478,2 L248.816705,112.770696 C247.370456,107.363126 245.711524,101.871062 243.839907,96.2945055 L243.839907,96.2945055 L216.403712,2 L160,2 L216.403712,175 L270.893271,175 Z" id="Path">
+          </path>
+          <path d="M404.448387,179 C425.733871,179 441.804839,172.04525 452.66129,158.13575 C455.225806,163.054963 457.576613,169.119166 459.71371,176.328358 L459.71371,176.328358 L486,176.328358 L486,79.0042644 L407.141129,79.0042644 L407.141129,115.898365 L436.120161,115.898365 C436.034677,122.683487 433.705242,128.026771 429.131855,131.928216 C424.558468,135.829661 419.023387,137.780384 412.526613,137.780384 C404.491129,137.780384 397.652419,134.578654 392.010484,128.175195 C386.368548,121.771737 383.547581,108.519545 383.547581,88.4186212 C383.547581,55.1715233 392.352419,38.5479744 409.962097,38.5479744 C423.383065,38.5479744 431.375806,47.5806681 433.940323,65.6460554 L433.940323,65.6460554 L486,60.5572139 C482.23871,41.2196162 473.989516,26.2923478 461.252419,15.7754087 C448.515323,5.25846956 431.717742,0 410.859677,0 C383.077419,0 362.155242,8.84186212 348.093145,26.5255864 C334.031048,44.2093106 327,66.0277186 327,91.9808102 C327,118.697228 334.266129,139.879531 348.798387,155.527719 C363.330645,171.175906 381.880645,179 404.448387,179 Z" id="Path">
+          </path>
+        </g>
+        <rect fill="#FF2B22" x="57" y="48" width="486" height="51">
+        </rect>
+        <rect fill="#FF2B22" x="57" y="486" width="486" height="51">
+        </rect>
+      </svg>
+    </defs>
+    <image xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="1920" height="1080" id="intro" xlink:href="/images/intro.png" data-transform="scale(0) rotate(360deg)" />
+    <image xmlns:xlink="http://www.w3.org/1999/xlink" id="2019" transform="" x="184" y="145" width="921" height="243" xlink:href="/images/2019.png" style="transform: translate(2841px, -1323px);" data-transform="translate(552.5px, 194px) rotate(-9deg) translate(-552.5px, -194px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="engineering-team" x="1293" y="48" width="554" height="922" xlink:href="/images/engineering-team.png" transform="" data-transform="" style="transform: translate(2474px, 2002px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="rapha-kit" transform="" x="126" y="0" width="810" height="1080" xlink:href="/images/rapha-kit.jpg" style="transform: translate(2730px, 2160px);" data-transform="translate(468px, 540px) rotate(-15deg) translate(-468px, -540px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="engineering" x="171" y="192" width="1578" height="150" xlink:href="/images/engineering.png" transform="" data-transform="" style="transform: translate(3498px, 1230px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="fun" x="581" y="328" width="392" height="158" xlink:href="/images/fun.png" transform="" data-transform="" style="transform: translate(2312px, -1238px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="crossfunctionality" x="43" y="342" width="1831" height="132" xlink:href="/images/crossfunctionality.png" transform="" data-transform="" style="transform: translate(-3751px, -1212px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="gideon-andre-ghost" x="144" y="74" width="829" height="623" xlink:href="/images/gideon-andre-ghost.png" transform="" data-transform="" style="transform: translate(2749px, 1703px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="gideon-andre" x="144" y="75" width="829" height="621.75" xlink:href="/images/gideon-andre.jpg" transform="" data-transform="" style="transform: translate(-2749px, 1701.75px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="bored" transform="" x="740" y="87" width="1106" height="830" xlink:href="/images/bored.jpg" style="transform: translate(3026px, 1910px);" data-transform="translate(923px, 458.5px) rotate(17deg) translate(-923px, -458.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="computer-rap" transform="" x="79" y="220" width="835" height="419" xlink:href="/images/computer-rap.jpg" style="transform: translate(-2755px, -1499px);" data-transform="translate(457px, 319.5px) rotate(-13deg) translate(-457px, -319.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="love-hate" x="253" y="21" width="1394" height="614" xlink:href="/images/love-hate.png" transform="" data-transform="" style="transform: translate(-3314px, 1694px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="consolid8" transform="" x="105" y="125" width="756" height="310" xlink:href="/images/consolid8.png" style="transform: translate(2676px, -1390px);" data-transform="translate(430.5px, 217.5px) rotate(-8deg) translate(-430.5px, -217.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="stressed2" transform="" x="575" y="-54" width="1440" height="1080" xlink:href="/images/stressed2.jpg" style="transform: translate(-3360px, -2160px);" data-transform="translate(1007.5px, 513px) rotate(18deg) translate(-1007.5px, -513px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="angry" transform="" x="2" y="68" width="1114" height="836" xlink:href="/images/angry.jpg" style="transform: translate(3034px, -1916px);" data-transform="translate(558px, 452px) rotate(-13deg) translate(-558px, -452px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="brunei-prince" x="401" y="21" width="1099" height="824" xlink:href="/images/brunei-prince.jpg" transform="" data-transform="" style="transform: translate(-3019px, 1904px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="brunei" x="1021" y="145" width="423" height="480" xlink:href="/images/brunei.png" transform="" data-transform="" style="transform: translate(2343px, 1560px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="rapha-custom" transform="" x="87" y="145" width="1000" height="736" xlink:href="/images/rapha-custom.jpg" style="transform: translate(-2920px, 1816px);" data-transform="translate(543.5px, 440.5px) rotate(12deg) translate(-543.5px, -440.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="velo" transform="" x="28" y="347" width="830" height="622" xlink:href="/images/velo.jpg" style="transform: translate(2750px, 1702px);" data-transform="translate(429px, 484.5px) rotate(16deg) translate(-429px, -484.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="velo2" transform="" x="-121" y="-117" width="1254" height="705" xlink:href="/images/velo2.jpg" style="transform: translate(3174px, -1785px);" data-transform="translate(566.5px, 294px) rotate(-10deg) translate(-566.5px, -294px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="velo3" x="688" y="120" width="1255" height="941" xlink:href="/images/velo3.jpg" transform="" data-transform="" style="transform: translate(-3175px, 2021px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="velo4" x="1020" y="-47" width="1254" height="705" xlink:href="/images/velo4.jpg" transform="" data-transform="" style="transform: translate(-3174px, 1785px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="USA" transform="" x="729" y="45" width="1128" height="705" xlink:href="/images/USA.jpg" style="transform: translate(3048px, 1785px);" data-transform="translate(928.5px, 375px) rotate(11deg) translate(-928.5px, -375px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="uk-flag" transform="" x="65" y="176" width="757" height="507" xlink:href="/images/uk-flag.jpg" style="transform: translate(-2677px, -1587px);" data-transform="translate(411px, 341.5px) rotate(-26deg) translate(-411px, -341.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="slayer" x="0" y="0" width="1920" height="1080" xlink:href="/images/slayer.png" transform="" data-transform="" style="transform: translate(-3840px, -2160px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="slayer-knitter" x="0" y="0" width="1920" height="1080" xlink:href="/images/slayer-knitter.png" transform="" data-transform="" style="transform: translate(-3840px, -2160px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="aisha-unsure" x="856" y="58" width="736" height="982" xlink:href="/images/aisha-unsure.jpg" transform="" data-transform="" style="transform: translate(2656px, -2062px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="aisha-sure" x="856" y="48" width="736" height="981.333333" xlink:href="/images/aisha-sure.jpg" transform="" data-transform="" style="transform: translate(2656px, 2061.33px);"/>
+      <image id="gil-talk" transform="" x="11" y="45" width="1024" height="683" xlink:href="/images/gil-talk.jpg" style="transform: translate(-2944px, 1763px);" data-transform="translate(517.5px, 364px) rotate(-11deg) translate(-517.5px, -364px)"/>
+      <image id="sensie" x="728" y="48" width="1140" height="798" xlink:href="/images/sensie.jpg" transform="" data-transform="" style="transform: translate(3060px, 1878px);"/>
+      <image id="gil-head" x="1373" y="0" width="256" height="256" xlink:href="/images/gil-head.png" transform="" data-transform="" style="transform: translate(-2176px, -1336px);"/>
+      <image id="lacked-stability" x="29" y="0" width="1600" height="1200" xlink:href="/images/lacked-stability.jpg" transform="" data-transform="" style="transform: translate(3520px, -2280px);"/>
+      <image id="dunk" transform="" x="1298" y="82" width="480" height="365" xlink:href="/images/dunk.gif" style="transform: translate(2400px, -1445px);" data-transform="translate(889px, 223.5px) rotate(8deg) translate(-889px, -223.5px)"/>
+      <image id="irina-stronger" transform="" x="51" y="-244" width="900" height="1200" xlink:href="/images/irina-stronger.jpg" style="transform: translate(2820px, -2280px);" data-transform="translate(475.5px, 478px) rotate(15deg) translate(-475.5px, -478px)"/>
+      <image id="rapper_computer" transform="" x="774" y="28" width="1002" height="1002" xlink:href="/images/rapper_computer.png" style="transform: translate(2922px, 2082px);" data-transform="translate(888px, 515px) rotate(-6deg) translate(-888px, -515px)"/>
+      <image id="joel-turkey" transform="" x="183" y="38" width="592" height="784" xlink:href="/images/joel-turkey.png" style="transform: translate(2512px, 1864px);" data-transform="translate(387.5px, 411px) rotate(-14deg) translate(-387.5px, -411px)"/>
+      <image id="napa" transform="" x="928" y="87" width="917" height="783" xlink:href="/images/napa.png" style="transform: translate(-2837px, 1863px);" data-transform="translate(922.5px, 435px) rotate(18deg) translate(-922.5px, -435px)"/>
+      <image id="aisha-pilar-teachers" transform="" x="132" y="-1.13686838e-13" width="1192" height="894" xlink:href="/images/aisha-pilar-teachers.jpg" style="transform: translate(-3112px, -1974px);" data-transform="translate(662px, 446.99999999999994px) rotate(-8deg) translate(-662px, -446.99999999999994px)"/>
+      <image id="cloud" x="1001" y="190" width="800" height="480" xlink:href="/images/cloud.jpg" transform="" data-transform="" style="transform: translate(2720px, -1560px);"/>
+      <image id="auction" transform="" x="108" y="47" width="752" height="1002" xlink:href="/images/auction.jpg" style="transform: translate(-2672px, 2082px);" data-transform="translate(430px, 524.5px) rotate(14deg) translate(-430px, -524.5px)"/>
+      <image id="stack-bills" x="728" y="119" width="1075" height="720" xlink:href="/images/stack-bills.jpg" transform="" data-transform="" style="transform: translate(-2995px, 1800px);"/>
+      <image id="angry" x="-209" y="-412" width="2560" height="1920" xlink:href="/images/angry.jpg" transform="" data-transform="" style="transform: translate(-4480px, 3000px);"/>
+      <image id="thermometer" transform="" x="-164" y="131" width="1024" height="682" xlink:href="/images/thermometer.jpg" style="transform: translate(-2944px, 1762px);" data-transform="translate(430px, 406.5px) rotate(-39deg) translate(-430px, -406.5px)"/>
+      <image id="chris-heaven" x="829" y="-271" width="1200" height="1600" xlink:href="/images/chris-heaven.jpg" transform="" data-transform="" style="transform: translate(-3120px, -2680px);"/>
+      <image id="cocktails" x="51" y="-12" width="1378" height="917" xlink:href="/images/cocktails.jpg" transform="" data-transform="" style="transform: translate(-3298px, 1997px);"/>
+      <image id="just" x="-15" y="450" width="458" height="253" xlink:href="/images/just.png" transform="" data-transform="" style="transform: translate(-2378px, 1333px);"/>
+      <image id="a" x="438" y="137" width="286" height="293" xlink:href="/images/a.png" transform="" data-transform="" style="transform: translate(-2206px, 1373px);"/>
+      <image id="ciaran" x="1071" y="13" width="791" height="1054" xlink:href="/images/ciaran.jpg" transform="" data-transform="" style="transform: translate(2711px, 2134px);"/>
+      <image id="bit" x="861" y="292" width="310" height="136" xlink:href="/images/bit.png" transform="" data-transform="" style="transform: translate(2230px, 1216px);"/>
+      <image id="tired" x="1128" y="436" width="677" height="209" xlink:href="/images/tired.png" transform="" data-transform="" style="transform: translate(-2597px, -1289px);"/>
+      <image id="unravel" transform="" x="128" y="128" width="1200" height="628" xlink:href="/images/unravel.jpg" style="transform: translate(-3120px, 1708px);" data-transform="translate(664px, 378px) rotate(-14deg) translate(-664px, -378px)"/>
+      <image id="order-portal" transform="" x="129" y="141" width="1371" height="743" xlink:href="/images/order-portal.png" style="transform: translate(-3291px, -1823px);" data-transform="translate(750px, 442px) rotate(-15deg) translate(-750px, -442px)"/>
+      <image id="spreadsheet" transform="" x="825" y="95" width="1152" height="682" xlink:href="/images/spreadsheet.png" style="transform: translate(-3072px, -1762px);" data-transform="translate(988.5px, 388.5px) rotate(14deg) translate(-988.5px, -388.5px)"/>
+      <image id="frontend-complete" x="56" y="28" width="1115" height="828" xlink:href="/images/frontend-complete.png" transform="" data-transform="" style="transform: translate(-3035px, 1908px);"/>
+      <image id="sad" x="479" y="28" width="1434" height="1076" xlink:href="/images/sad.jpg" transform="" data-transform="" style="transform: translate(3354px, 2156px);"/>
+          <image id="crying" x="479" y="28" width="1434" height="1076" xlink:href="/images/crying.jpg" transform="" data-transform="" style="transform: translate(3354px, 2156px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="katie_jaz" transform="" x="69" y="-100" width="1608" height="1206" xlink:href="/images/katie_jaz.png" style="transform: translate(3528px, 2286px);" data-transform="translate(838.5px, 553px) rotate(5deg) translate(-838.5px, -553px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="showcase" x="721" y="2328" width="400" height="53" xlink:href="/images/showcase.png" transform="" data-transform="translate(0px, -2000px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="uui" x="431" y="-694" width="1058" height="569" xlink:href="/images/uui.png" transform="" data-transform="translate(0, 800px)" />
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="steak-kidney" x="1004" y="-19" width="800" height="800" xlink:href="/images/steak-kidney.jpg" transform="" data-transform="" style="transform: translate(2720px, -1880px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="wales" transform="" x="58" y="97" width="1024" height="569" xlink:href="/images/wales.jpg" style="transform: translate(-2944px, 1649px);" data-transform="translate(541px, 333px) rotate(-9deg) translate(-541px, -333px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="gil-pycon" x="776" y="20" width="954" height="536" xlink:href="/images/gil-pycon.png" transform="" data-transform="" style="transform: translate(-3127px, 1758px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="coat-tails" x="1226" y="269" width="622" height="811" xlink:href="/images/coat-tails.png" transform="" data-transform="" style="transform: translate(2707px, -2106px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="somerset-house" transform="" x="0" y="185" width="1600" height="800" xlink:href="/images/somerset-house.jpg" style="transform: translate(-3520px, -1880px);" data-transform="translate(800px, 492.5px) rotate(-10deg) translate(-800px, -492.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="overflowing" transform="" x="1243" y="14" width="600" height="800" xlink:href="/images/overflowing.jpg" style="transform: translate(2520px, 1880px);" data-transform="translate(921.5px, 407px) rotate(12deg) translate(-921.5px, -407px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="ink-rooms" x="225" y="-465" width="1318" height="1758" xlink:href="/images/ink-rooms.jpg" transform="" data-transform="" style="transform: translate(3238px, -2838px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="chilli" x="688" y="-486" width="1232" height="1642" xlink:href="/images/chilli.jpg" transform="" data-transform="" style="transform: translate(-3152px, -2722px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="pilar-deliveroo" x="-338" y="-168" width="1642" height="1232" xlink:href="/images/pilar-deliveroo.jpg" transform="" data-transform="" style="transform: translate(-3562px, 2312px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="shoe-1" transform="" x="448" y="-19" width="423" height="480" xlink:href="/images/shoe-1.jpg" style="transform: translate(-2343px, 1560px);" data-transform="translate(435.5px, 230.5px) rotate(8deg) translate(-435.5px, -230.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="shoe-2" transform="" x="1398" y="467" width="423" height="480" xlink:href="/images/shoe-2.jpg" style="transform: translate(-2343px, -1560px);" data-transform="translate(910.5px, 473.5px) rotate(-19deg) translate(-910.5px, -473.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="shoe-3" transform="" x="873" y="142" width="423" height="480" xlink:href="/images/shoe-3.jpg" style="transform: translate(2343px, 1560px);" data-transform="translate(648px, 311px) rotate(-16deg) translate(-648px, -311px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="shoe-4" transform="" x="1411" y="60" width="423" height="480" xlink:href="/images/shoe-4.jpg" style="transform: translate(-2343px, 1560px);" data-transform="translate(917px, 270px) rotate(13deg) translate(-917px, -270px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="swag" x="602" y="40" width="600" height="778" xlink:href="/images/swag.jpg" transform="" data-transform="" style="transform: translate(-2520px, 1858px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="shoreditch" transform="" x="-99" y="-2" width="1600" height="900" xlink:href="/images/shoreditch.jpg" style="transform: translate(3520px, 1980px);" data-transform="translate(750.5px, 449px) rotate(-10deg) translate(-750.5px, -449px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="ffconf" transform="" x="854" y="69" width="1024" height="684" xlink:href="/images/ffconf.jpg" style="transform: translate(-2944px, 1764px);" data-transform="translate(939px, 376.5px) rotate(15deg) translate(-939px, -376.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="nb-trip" transform="" x="50" y="-197" width="911" height="1215" xlink:href="/images/nb-trip.jpg" style="transform: translate(-2831px, 2295px);" data-transform="translate(480.5px, 509px) rotate(-11deg) translate(-480.5px, -509px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="excellence" x="1041" y="28" width="733" height="977" xlink:href="/images/excellence.jpg" transform="" data-transform="" style="transform: translate(2653px, 2057px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="juice" transform="" x="-70" y="25" width="1240" height="911" xlink:href="/images/juice.png" style="transform: translate(-3160px, 1991px);" data-transform="translate(585px, 468px) rotate(-13deg) translate(-585px, -468px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="2020" transform="" x="902" y="12" width="911" height="1010" xlink:href="/images/2020.png" style="transform: translate(-2831px, 2090px);" data-transform="translate(906.5px, 511px) rotate(10deg) translate(-906.5px, -511px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="20201" transform="" x="-136" y="2" width="1152" height="921" xlink:href="/images/20201.png" style="transform: translate(3072px, -2001px);" data-transform="translate(508px, 461.5px) rotate(-16deg) translate(-508px, -461.5px)"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="frosty" x="263" y="128" width="1280" height="720" xlink:href="/images/frosty.jpg" transform="" data-transform="" style="transform: translate(-3200px, -1800px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="vegas" x="60" y="-152" width="1800" height="1200" xlink:href="/images/vegas.jpg" transform="" data-transform="" style="transform: translate(-3720px, 2280px);"/>
+      <image xmlns:xlink="http://www.w3.org/1999/xlink" id="ben-secretive-removebg-preview" x="1427" y="503" width="433" height="577" xlink:href="/images/ben-secretive-removebg-preview.png" transform="" data-transform="" style="transform: translate(0px, 500px);"/>
+   
+  
+    <use id="dog" href="#runsvg" x="-100" y="10" width="100" height="100" data-transform="translate(210px, 0px)" />
+    
+    <rect class="textbg" x="0" y="0" width="0" height="0" fill="black" />
+    <rect x="0" y="0" width="100%" height="100%" fill="white" clip-path="url(#textClip1)" />
+    <rect id="slide1" class="slide" x="0" y="0" width="0" height="100%" fill="url(#redPattern)" clip-path="url(#textClip1)" />
+    
+    <rect class="textbg" x="0" y="0" width="0" height="0" fill="black" />
+    <rect x="0" y="0" width="100%" height="100%" fill="white" clip-path="url(#textClip2)" />
+    <rect id="slide2" class="slide" x="0" y="0" width="0" height="100%" fill="url(#greenPattern)" clip-path="url(#textClip2)" />
+    
+    <rect class="textbg" x="0" y="0" width="0" height="0" fill="black" />
+    <rect x="0" y="0" width="100%" height="100%" fill="white" clip-path="url(#textClip3)" />
+    <rect id="slide3" class="slide" x="0" y="0" width="0" height="100%" fill="url(#redPattern)" clip-path="url(#textClip3)" />
+    
+    <rect class="textbg" x="0" y="0" width="0" height="0" fill="black" />
+    <rect x="0" y="0" width="100%" height="100%" fill="white" clip-path="url(#textClip4)" />
+    <rect id="slide4" class="slide" x="0" y="0" width="0" height="100%" fill="url(#greenPattern)" clip-path="url(#textClip4)" />
+  
+    <text fill="white" id="instro" x="50%" y="1240" dominant-baseline="middle" text-anchor="middle" data-transform="translate(0, -400px)">[INSTRUMENTAL]...</text>
+  </svg>
+
+  <script type="text/javascript">
+  const PADDING = 10;
+
+let lineIndex = 0;
+let clearVerseTimeout;
+const textBoxes = document.querySelectorAll(".caption");
+const bgs = document.querySelectorAll('.textbg');
+const sliders = document.querySelectorAll(".slide");
+
+const audio = document.getElementById("audio");
+
+const svg = document.getElementById("root");
+document.body.addEventListener("click", () => {
+  svg.requestFullscreen().then(() => {
+    audio.play();
+  });
+});
+
+const within25 = (value1, value2) => {
+  return value1 < value2 && value1 + 0.25 > value2;
+};
+
+const findNext = (value1, value2) => value1 > value2;
+
+const clearVerse = () => {
+  textBoxes.forEach((text, index) => {
+    text.innerHTML = "";
+    sliders[index].style.transitionDuration = "0s";
+    sliders[index].style.width = 0;
+    bgs[index].style.width = 0;
+  });
+};
+
+const onTimeUpdate = () => {
+  const time = audio.currentTime;
+
+  const img = pics.findIndex(pic => !pic.showing && findNext(time + 1, pic.time));
+  if (img > -1) {
+    const pic = pics[img];
+    pic.showing = true;
+    const picEl = document.getElementById(pic.id);
+    picEl.style.transform = picEl.dataset.transform;
+  }
+
+  const hide = outs.findIndex(pic => !pic.showing && findNext(time + 1, pic.time));
+  if (hide > -1) {
+    const pic = outs[hide];
+    const picEl = document.getElementById(pic.id);
+    picEl.style.opacity = 0;
+  }
+
+  const item = lyrics.findIndex(
+    lyric => !lyric.playing && findNext(time, lyric.start)
+  );
+  if (item !== -1) {
+    const { lyric, start, end } = lyrics[item];
+
+    if (lineIndex === 0) {
+      clearVerse();
+      if (clearVerseTimeout) {
+        clearTimeout(clearVerseTimeout);
+      }
+    }
+
+    lyrics[item].playing = true;
+
+    const text = textBoxes[lineIndex];
+    const slider = sliders[lineIndex];
+    const bg = bgs[lineIndex];
+    lineIndex += 1;
+
+    if (lineIndex === 4) {
+      lineIndex = 0;
+      clearVerseTimeout = setTimeout(clearVerse, (end - start) * 1000);
+    }
+
+    slider.style.transitionDuration = "0s";
+    text.innerHTML = lyric;
+    text.dataset.line = item;
+    const { x, width, y, height } = text.getBBox();
+    slider.style.width = x;
+    bg.style.x = x - PADDING;
+    bg.style.y = y - PADDING;
+    bg.style.width = width + PADDING + PADDING;
+    bg.style.height = height + PADDING + PADDING;
+
+    setTimeout(() => {
+      const duration = `${end - start - 1}s`;
+      slider.style.transitionDuration = duration;
+      slider.style.width = x + width;
+    }, 500);
+  }
+};
+
+audio.addEventListener("timeupdate", onTimeUpdate);
+
+const outs = [
+  { id: 'instro', time: 29.213107 },
+  {id: "dunk", time: 112},
+];
+
+const pics = [ 
+  {id: 'intro', time: 25},
+    {id: 'instro', time: 25},
+ {id: 'dog', time: 25},
+  {id: "2019", time: 30.426047},
+ {id: "engineering-team", time: 33.340879},
+ {id: "rapha-kit", time: 36.197079},
+ {id: "engineering", time: 38.571486},
+ {id: "fun", time: 43.403119},
+ {id: "crossfunctionality", time: 44.418975},
+ {id: "gideon-andre-ghost", time: 45.765812},
+ {id: "gideon-andre", time: 48.796804},
+ {id: "bored", time: 50.971945},
+ {id: "computer-rap", time: 53.66744},
+ {id: "love-hate", time: 56.426799},
+ {id: "consolid8", time: 59.404895},
+ {id: "stressed2", time: 62.656795},
+ {id: "angry", time: 64.115805},
+ {id: "brunei-prince", time: 66.057613},
+ {id: "brunei", time: 66.984775},
+ {id: "rapha-custom", time: 69.271712},
+ {id: "velo", time: 80.572725},
+ {id: "velo2", time: 81.254308},
+ {id: "velo3", time: 81.858021},
+ {id: "velo4", time: 82.416084},
+ {id: "USA", time: 83.478269},
+ {id: "uk-flag", time: 84.602027},
+ {id: "slayer", time: 85.727563},
+ {id: "slayer-knitter", time: 86.964592},
+ {id: "aisha-unsure", time: 88.051511},
+ {id: "aisha-sure", time: 89.436297},
+ {id: "gil-talk", time: 90.746965},
+ {id: "sensie", time: 94.037585},
+ {id: "gil-head", time: 94.729714},
+ {id: "lacked-stability", time: 96.215697},
+ {id: "dunk", time: 98.624877},
+ {id: "irina-stronger", time: 100.357326},
+ {id: "rapper_computer", time: 105.854788},
+ {id: "joel-turkey", time: 110.515972},
+ {id: "napa", time: 111.788275},
+ {id: "aisha-pilar-teachers", time: 115.937401},
+ {id: "cloud", time: 118.955752},
+ {id: "auction", time: 130.41022},
+ {id: "stack-bills", time: 131.742094},
+ {id: "angry", time: 138.514334},
+ {id: "thermometer", time: 140.970888},
+ {id: "chris-heaven", time: 143.197609},
+ {id: "cocktails", time: 145.781196},
+ {id: "just", time: 148.889006},
+ {id: "a", time: 149.169251},
+ {id: "ciaran", time: 149.40593},
+ {id: "bit", time: 149.59253},
+ {id: "tired", time: 149.849902},
+ {id: "unravel", time: 152.035097},
+ {id: "order-portal", time: 156.416543},
+ {id: "spreadsheet", time: 157.208849},
+ {id: "frontend-complete", time: 158.258477},
+ {id: "sad", time: 161.919831},
+ {id: "crying", time: 162.711958},
+ {id: "katie_jaz", time: 164.330339},
+ {id: "showcase", time: 166},
+ {id: "uui", time: 167},
+ {id: "steak-kidney", time: 168.769564},
+ {id: "wales", time: 181.197168},
+ {id: "gil-pycon", time: 182.472065},
+ {id: "coat-tails", time: 183.597286},
+ {id: "somerset-house", time: 185.893189},
+ {id: "overflowing", time: 187.004317},
+ {id: "ink-rooms", time: 188.450385},
+ {id: "chilli", time: 189.797004},
+ {id: "pilar-deliveroo", time: 191.331988},
+ {id: "shoe-1", time: 193.209354},
+ {id: "shoe-2", time: 193.520876},
+ {id: "shoe-3", time: 193.878241},
+ {id: "shoe-4", time: 194.371958},
+ {id: "swag", time: 198.995901},
+ {id: "shoreditch", time: 202.86675},
+ {id: "ffconf", time: 203.509668},
+ {id: "nb-trip", time: 204.239707},
+ {id: "excellence", time: 206.192558},
+ {id: "juice", time: 209.981139},
+ {id: "2020", time: 211.440335},
+ {id: "20201", time: 211.685845},
+ {id: "frosty", time: 216.853762},
+ {id: "vegas", time: 218.835425},
+ {id: "ben-secretive-removebg-preview", time: 219.948861}];
+
+const lyrics = [
+  {
+    lyric: "We’ve had a really wild ride in two-thousand nineteen",
+    start: 29.213107,
+    end: 31.983377
+  },
+  {
+    lyric: "We’ve doubled the size of the engineering team",
+    start: 32.055418,
+    end: 34.615807
+  },
+  {
+    lyric: "We launched a bunch of stuff and got some cycling gear",
+    start: 34.589431,
+    end: 37.163644
+  },
+  {
+    lyric: "Here’s the highlights from engineering’s year",
+    start: 37.138122,
+    end: 39.625795
+  },
+  {
+    lyric: "In January we switched up our old working banality",
+    start: 39.610196,
+    end: 42.271531
+  },
+  {
+    lyric: "Decided we would put the fun in cross-functionality",
+    start: 42.171762,
+    end: 44.657386
+  },
+  {
+    lyric: "We hired three people, two on the same day",
+    start: 44.546999,
+    end: 47.194479
+  },
+  {
+    lyric: "But only two turned up: Gideon and Andrei",
+    start: 47.081285,
+    end: 49.653741
+  },
+  {
+    lyric: "February was a quiet month and not much happened",
+    start: 49.604286,
+    end: 52.190774
+  },
+  {
+    lyric: "Probably shoulda used that time to get computers rappin",
+    start: 52.130133,
+    end: 54.788401
+  },
+  {
+    lyric: "No complaining though we’re showing love not hate",
+    start: 54.686971,
+    end: 57.127511
+  },
+  {
+    lyric: "Cos that’s the month we launched team Consolid-8",
+    start: 57.08699,
+    end: 59.648696
+  },
+  {
+    lyric: "March was a big month for Unmade",
+    start: 59.747036,
+    end: 62.231328
+  },
+  {
+    lyric: "Hairs were grayed and we saw tempers frayed",
+    start: 62.135841,
+    end: 64.607338
+  },
+  {
+    lyric: "On launch the Prince of Brunei did something disgustin’",
+    start: 64.5557,
+    end: 67.2051
+  },
+  {
+    lyric: "Of course I’m talking bout the launch of Rapha Custom",
+    start: 67.083565,
+    end: 69.791941
+  },
+  {
+    lyric: "In April we celebrated, taking to the track",
+    start: 79.512484,
+    end: 82.123858
+  },
+  {
+    lyric: "Joel took a trip to the states, and came back",
+    start: 82.109189,
+    end: 84.647918
+  },
+  {
+    lyric: "We founded team Slayer to knit single layer",
+    start: 84.509576,
+    end: 87.045925
+  },
+  {
+    lyric: "We tried to hire Aisha and we managed to sway her",
+    start: 86.995735,
+    end: 89.81585
+  },
+  {
+    lyric: "Along came May, it was OK",
+    start: 89.690726,
+    end: 92.164959
+  },
+  {
+    lyric: "Gil showed the world he’s a management sensei",
+    start: 92.138076,
+    end: 94.737613
+  },
+  {
+    lyric: "Our systems lacked stability they kept on actin drunken",
+    start: 94.612726,
+    end: 97.285521
+  },
+  {
+    lyric: "We got site reliability when we scored a slam Duncan",
+    start: 97.145573,
+    end: 99.695524
+  },
+  {
+    lyric: "Irina came aboard to make the back-end team stronger",
+    start: 99.619847,
+    end: 102.257703
+  },
+  {
+    lyric: "Right now you’re thinking could this awful song get longer?",
+    start: 102.156766,
+    end: 104.816049
+  },
+  {
+    lyric: "It’s hard to make computers rap along to a tune",
+    start: 104.666705,
+    end: 107.154902
+  },
+  {
+    lyric: "And it won’t be over soon because we’re only in June",
+    start: 107.039614,
+    end: 109.802298
+  },
+  {
+    lyric: "Joel went to turkey and we launched Napapijri",
+    start: 110.133436,
+    end: 112.203206
+  },
+  {
+    lyric: "If you thought I wouldn’t find a rhyme for that you must be silly",
+    start: 112.07502,
+    end: 114.722937
+  },
+  {
+    lyric: "Pilar and Aisha taught the technologically disavowed",
+    start: 114.624387,
+    end: 117.271085
+  },
+  {
+    lyric: "Duncan flexed his tech by running lambdas in the cloud",
+    start: 117.134092,
+    end: 119.866778
+  },
+  {
+    lyric: "We auctioned of our skills and raised a stack of bills",
+    start: 129.940118,
+    end: 132.238007
+  },
+  {
+    lyric: "We wrote accessibility guidelines just for the thrills",
+    start: 132.088488,
+    end: 134.751335
+  },
+  {
+    lyric: "The front-end team covered the foundations",
+    start: 134.648042,
+    end: 137.102546
+  },
+  {
+    lyric: "To simplify a bunch of javascript frustrations",
+    start: 137.025501,
+    end: 139.795215
+  },
+  {
+    lyric: "We ate outside when the dial hit 37",
+    start: 139.664835,
+    end: 142.196675
+  },
+  {
+    lyric: "Even though he’s ginger, Chris was in heaven",
+    start: 142.147446,
+    end: 144.572278
+  },
+  {
+    lyric: "There was loads of booze in the cocktails, it transpired",
+    start: 144.545369,
+    end: 147.367755
+  },
+  {
+    lyric: "But Ciaran still insists that he was just a bit tired",
+    start: 147.230699,
+    end: 149.867267
+  },
+  {
+    lyric: "August rolled up and we started to unravel",
+    start: 149.703386,
+    end: 152.104893
+  },
+  {
+    lyric: "I can’t remember if there was any air travel",
+    start: 152.066782,
+    end: 154.754221
+  },
+  {
+    lyric: "The order portal started, better than a spreadsheet",
+    start: 154.675446,
+    end: 157.251936
+  },
+  {
+    lyric: "Allegra joined and made the front-end team complete",
+    start: 157.11265,
+    end: 159.810058
+  },
+  {
+    lyric: "When we signed a deal the engineering team would sigh",
+    start: 159.674058,
+    end: 162.22232
+  },
+  {
+    lyric: "And cry, Until a twinkle in Jaz and Katie’s eye",
+    start: 162.061144,
+    end: 164.746896
+  },
+  {
+    lyric: "Turned what we called Showcase into Universal UI",
+    start: 164.633819,
+    end: 167.258856
+  },
+  {
+    lyric: "In September we were hotter than a steak and kidney pie",
+    start: 167.132418,
+    end: 169.756442
+  },
+  {
+    lyric: "Irina and Gil dashed off to PyCon in Wales",
+    start: 179.477685,
+    end: 182.174108
+  },
+  {
+    lyric: "Gil gave a talk, Irina rode his coat-tails",
+    start: 182.135821,
+    end: 184.733695
+  },
+  {
+    lyric: "We finally got sick of Somerset House toilets overflowing",
+    start: 184.632811,
+    end: 187.477411
+  },
+  {
+    lyric: "Moved to a better office and the plants started growing",
+    start: 187.304504,
+    end: 189.793003
+  },
+  {
+    lyric: "Pilar gave a talk at an event at Deliveroo",
+    start: 189.668081,
+    end: 192.2675
+  },
+  {
+    lyric: "We launched the world's first customisable knitted shoe",
+    start: 192.114245,
+    end: 194.865368
+  },
+  {
+    lyric: "I couldn’t say how much it costs to get one in the bag",
+    start: 194.713735,
+    end: 197.227227
+  },
+  {
+    lyric: "Cos I’m holding out til we all get swag",
+    start: 197.11156,
+    end: 199.813644
+  },
+  {
+    lyric: "In November we had a bunch of out-the-office antics",
+    start: 199.899319,
+    end: 202.27401
+  },
+  {
+    lyric: "Shoreditch, Brighton, even Jaz crossed the Atlantic",
+    start: 202.12383,
+    end: 204.821656
+  },
+  {
+    lyric: "We’re bunkin off on Wednesday and excellence is the excuse",
+    start: 204.680384,
+    end: 207.181698
+  },
+  {
+    lyric: "Simon interrupted a meeting with a couple cans of… juice",
+    start: 207.153379,
+    end: 209.977953
+  },
+  {
+    lyric: "Here we are in December and 2020 is looming",
+    start: 210.0772,
+    end: 212.228174
+  },
+  {
+    lyric: "Nearly ready to let normal programming be resuming",
+    start: 212.090198,
+    end: 214.691193
+  },
+  {
+    lyric: "Keep your eyes peeled for a snowman named Frosty",
+    start: 214.565742,
+    end: 217.16278
+  },
+  {
+    lyric: "But remember, what happened in Vegas stays with Vospy",
+    start: 217.100769,
+    end: 220.082401
+  }
+];
+</script>
+  
+</body>
+
+</html>
